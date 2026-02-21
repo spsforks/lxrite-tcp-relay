@@ -379,7 +379,7 @@ private:
     Log::error("[session: {}] | failed to connect to {}:{}", session_id_, host,
                port);
     throw std::runtime_error(
-        std::format("failed to connect to {}:{}", session_id_, host, port));
+        std::format("failed to connect to {}:{}", host, port));
   }
 
   asio::awaitable<void> http_proxy_handshake(asio::ip::tcp::socket &server) {
