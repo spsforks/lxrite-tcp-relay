@@ -13,6 +13,7 @@
 #include <asio/read_until.hpp>
 #include <asio/signal_set.hpp>
 #include <asio/steady_timer.hpp>
+#include <asio/strand.hpp>
 #include <chrono>
 #include <cstring>
 #include <format>
@@ -689,8 +690,9 @@ public:
     };
     for (std::uint64_t session_id = 10000;; ++session_id) {
       auto client = co_await acceptor_.async_accept(asio::use_awaitable);
+      auto strand = asio::make_strand(executor);
       asio::co_spawn(
-          executor,
+          strand,
           [session_id, conn_options,
            client = std::move(client)]() mutable -> asio::awaitable<void> {
             RelayConnection conn(session_id, conn_options);
