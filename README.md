@@ -45,6 +45,9 @@ options:
 ```
 
 ## Changelog
+ 
+### 1.1.2
+- Bug fixes
 
 ### 1.1.0
 - Added encryption modes (client/server) for secure tunneling
@@ -79,7 +82,7 @@ options:
 The encryption mode allows you to create an encrypted tunnel between two tcp-relay instances:
 
 ```
-┌────────┐     plaintext     ┌─────────────────┐    encrypted    ┌─────────────────┐     plaintext     ┌────────┐
+┌────────┐     plaintext     ┌─────────────────┐    encrypted     ┌─────────────────┐     plaintext      ┌────────┐
 │ Client │ ───────────────── │ tcp-relay       │ ──────────────── │ tcp-relay       │ ────────────────── │ Server │
 │        │                   │ (client mode)   │                  │ (server mode)   │                    │        │
 └────────┘                   └─────────────────┘                  └─────────────────┘                    └────────┘
